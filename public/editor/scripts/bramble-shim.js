@@ -76,6 +76,7 @@ function shimAPI(bramble) {
   bramble.getAutoCloseTags =
     bramble.getAutoCloseTags || getAutoCloseTagsDefault;
   bramble.getAllowJavaScript = bramble.getAllowJavaScript || defaultTrue;
+  bramble.getAllowHints = bramble.getAllowHints || defaultTrue;
   bramble.getAllowWhiteSpace = bramble.getAllowWhiteSpace || defaultFalse;
   bramble.getAutoUpdate = bramble.getAutoUpdate || defaultTrue;
   bramble.getOpenSVGasXML = bramble.getOpenSVGasXML || defaultFalse;
@@ -84,6 +85,8 @@ function shimAPI(bramble) {
   bramble.getFileCount = bramble.getFileCount || returnZero;
 
   // New API Methods
+  bramble.enableHints = bramble.enabbleHints || arg0WithCallback;
+  bramble.disableHints = bramble.disableHints || arg0WithCallback;
   bramble.enableWhiteSpace = bramble.enableWhiteSpace || arg0WithCallback;
   bramble.disableWhiteSpace = bramble.disableWhiteSpace || arg0WithCallback;
   bramble.enableAutocomplete = bramble.enableAutocomplete || arg0WithCallback;
