@@ -228,6 +228,30 @@ function setupOptionsMenu(bramble) {
     return false;
   });
 
+  //set initial UI value to show hints
+   if (bramble.getAllowHints()) {
+    $("#allow-hints-toggle").addClass("switch-enabled");
+  } else {
+    $("#allow-hints-toggle").removeClass("switch-enabled");
+  }
+
+   // Enable/Disable Hints Indicator
+   $("#editor-option-allowhints").click(function() {
+    // Toggle current value
+    var $allowHintsToggle = $("#allow-hints-toggle");
+    var toggle = !$allowHintsToggle.hasClass("switch-enabled");
+
+    if (toggle) {
+      $allowHintsToggle.addClass("switch-enabled");
+      bramble.enableHints();
+    } else {
+      $allowHintsToggle.removeClass("switch-enabled");
+      bramble.disableHints();
+    }
+
+    return false;
+  });
+
   //set initial UI value to allow whitespace indicator
   if (bramble.getAllowWhiteSpace()) {
     $("#allow-whitespace-toggle").addClass("switch-enabled");
